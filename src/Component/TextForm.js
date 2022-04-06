@@ -39,10 +39,11 @@ export default function TextForm(props) {
         <div className='container my-5'>
             {/* my-5: for y axis gap & mx-2: x axis*/}
             <h1>Text Summary</h1>
-            <p>characters-{text.length} and words-{text.split(" ").length}</p>
+            <p>characters-{text.length} and words-{text.split(/\s+/).filter((element)=>{return element.length!==0}).length}</p>
+            {/* <p>characters-{text.length} and words-{text.split(" ").length}</p> */}
         </div><br/>
         <h1>Data Entered</h1>
-        <p>{text}</p>
+        <p>{text.length>0? text:"No data entered"}</p>
         </>
     )
 }
